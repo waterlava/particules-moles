@@ -31,7 +31,6 @@ function Conversion() {
 	var particules = base*Math.pow(10, exposant);
     var avogadro = 6.02214076*Math.pow(10,23);
     var moles = particules/avogadro;
-    var arrondis = Math.round((moles + Number.EPSILON) * 100000) / 100000;
     
   	document.getElementById("Resultat").innerHTML=moles.toExponential();
 }
