@@ -23,17 +23,28 @@
   <input style="width: 30px" id="exposant" type="number" oninput="Conversion()" onchange="Conversion()">
 </p>
 <p>Moles : <span id="Resultat"></span></p>
+<h2>Molécules à Moles</h2>
+<label>Molécules : </label>
+<input style:"width:50px"="" id="molecules" type="number" oninput="Multiplication()" onchange="Multiplication()">
+<p>Moles : <span id="MolesResultat"></span></p>
 
 <script>
 function Conversion() {
-	var base = document.getElementById("base").value;
+    var base = document.getElementById("base").value;
     var exposant = document.getElementById("exposant").value;
-	var particules = base*Math.pow(10, exposant);
+    var particules = base*Math.pow(10, exposant);
     var avogadro = 6.02214076*Math.pow(10,23);
     var moles = particules/avogadro;
     var arrondis = Math.round((moles + Number.EPSILON) * 1000000) / 1000000;
     
-  	document.getElementById("Resultat").innerHTML=arrondis.toExponential();
+    document.getElementById("Resultat").innerHTML=arrondis.toExponential();
+}
+
+function Multiplication() {
+    var molecules = document.getElementById("molecules").value;
+    var avogadro = 6.02214076*Math.pow(10,23);
+ 
+    document.getElementById("MolesResultat").innerHTML=molecules*avogadro;
 }
 </script>
 </body>
