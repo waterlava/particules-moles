@@ -14,22 +14,25 @@
 <body>
 
 <h2>Conversion de particules à moles</h2>
-<p>Écrit la valeur à convertir :</p>
 
 <p>
   <label>Particules : </label>
-  <input style="width:50px" id="base" type="number" oninput="Conversion()" onchange="Conversion()">
+  <input style="width:50px" id="base" type="number" oninput="PM()" onchange="PM()">
   <label> x 10 ^ </label>
-  <input style="width: 30px" id="exposant" type="number" oninput="Conversion()" onchange="Conversion()">
+  <input style="width: 30px" id="exposant" type="number" oninput="PM()" onchange="PM()">
 </p>
-<p>Moles : <span id="Resultat"></span></p>
-<h2>Molécules à Moles</h2>
-<label>Molécules : </label>
-<input style:"width:50px"="" id="molecules" type="number" oninput="Multiplication()" onchange="Multiplication()">
-<p>Moles : <span id="MolesResultat"></span></p>
+
+<p>Moles : <span id="ResM"></span></p>
+
+
+<h2>Conversion de moles à particules</h2>
+
+<label>Moles : </label>
+<input style:"width:50px"="" id="moles" type="number" oninput="MP()" onchange="MP()">
+<p>Paricules : <span id="ResP"></span></p>
 
 <script>
-function Conversion() {
+function PM() {
     var base = document.getElementById("base").value;
     var exposant = document.getElementById("exposant").value;
     var particules = base*Math.pow(10, exposant);
@@ -37,14 +40,14 @@ function Conversion() {
     var moles = particules/avogadro;
     var arrondis = Math.round((moles + Number.EPSILON) * 1000000) / 1000000;
     
-    document.getElementById("Resultat").innerHTML=arrondis.toExponential();
+    document.getElementById("ResM").innerHTML=arrondis.toExponential();
 }
 
-function Multiplication() {
-    var molecules = document.getElementById("molecules").value;
+function MP() {
+    var molecules = document.getElementById("moles").value;
     var avogadro = 6.02214076*Math.pow(10,23);
  
-    document.getElementById("MolesResultat").innerHTML=molecules*avogadro;
+    document.getElementById("ResP").innerHTML=molecules*avogadro;
 }
 </script>
 </body>
