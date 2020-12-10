@@ -13,7 +13,7 @@
 
 <body>
 
-<h2>Conversion de particules à moles</h2>
+<h2>Particules à Moles</h2>
 
 <p>
   <label>Particules : </label>
@@ -25,11 +25,11 @@
 <p>Moles : <span id="ResM"></span></p>
 
 
-<h2>Conversion de moles à particules</h2>
+<h2>Moles à Particules</h2>
 
 <label>Moles : </label>
 <input style:"width:50px"="" id="moles" type="number" oninput="MP()" onchange="MP()">
-<p>Paricules : <span id="ResP"></span></p>
+<p>Particules : <span id="ResP"></span></p>
 
 <script>
 function PM() {
@@ -46,8 +46,10 @@ function PM() {
 function MP() {
     var molecules = document.getElementById("moles").value;
     var avogadro = 6.02214076*Math.pow(10,23);
+    var particules = molecules*avogadro;
+    var arrondis = Math.round((particules + Number.EPSILON) * 1000000) / 1000000;
  
-    document.getElementById("ResP").innerHTML=molecules*avogadro;
+    document.getElementById("ResP").innerHTML=arrondis;
 }
 </script>
 </body>
